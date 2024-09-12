@@ -1,0 +1,13 @@
+
+            // Exit game on Escape key press
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            // Player controls
+            var keyboardState = Keyboard.GetState();
+            if (keyboardState.IsKeyDown(Keys.Left) && playerPosition.X > 0)
+                playerPosition.X -= playerSpeed;
+            if (keyboardState.IsKeyDown(Keys.Right) && playerPosition.X < ScreenWidth - playerTexture.Width)
+                playerPosition.X += playerSpeed;
+
+            base.Update(gameTime);
